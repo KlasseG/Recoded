@@ -51,4 +51,7 @@ KlasseG es una WebApp que prioriza la interacción con el usuario y su facilidad
 
 - Configuración del servidor Listo
 - Conexión con la base de datos Listo
-- Configuración de las vistas de HTML dentro de las rutas del servidor
+- Configuración de las vistas de HTML dentro de las rutas del servidor Listo
+- Configuración de la entrada y salida de los datos desde la vista hacia el controlador Listo
+- CRUD Listo
+- Login y Logout con usuarios y express sessions Codificandose

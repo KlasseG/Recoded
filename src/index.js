@@ -7,6 +7,7 @@ const path= require('path'); //requerimos el path
 const methodOverride= require('method-override'); //method override para formularios
 const session= require('express-session');  //express session para generar sesiones separadas
 const exphbs= require('express-handlebars'); //handlebars para configurar el front con plantillas
+const flash=require('connect-flash');
 
 const index = require('./routes/index'); //traemos el archivo de carpeta/routes/index
 const notes = require('./routes/notes'); //traemos el archivo de carpeta/routes/notes
@@ -31,8 +32,14 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 })); 
-//Variables Globales
 
+app.use(flash());
+//Variables Globales
+app.use((req,res,next)=>{
+    res.locals.success_msg=req.flash('success_msg');
+    res.locals.error_msg=req.flash('error_msg');
+    next();
+});
 //Rutas o URLS
 app.use(index);
 app.use(notes);
