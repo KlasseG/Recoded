@@ -3,6 +3,9 @@ const express= require('express');  //requerimos express
 require('./database'); //traemos el db.js
 const app = express(); //iniciamos express
 
+const passport= require('passport');
+require('./config/passport');
+
 const path= require('path'); //requerimos el path
 const methodOverride= require('method-override'); //method override para formularios
 const session= require('express-session');  //express session para generar sesiones separadas
@@ -33,11 +36,16 @@ app.use(session({
     saveUninitialized: true
 })); 
 
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(flash());
 //Variables Globales
 app.use((req,res,next)=>{
     res.locals.success_msg=req.flash('success_msg');
     res.locals.error_msg=req.flash('error_msg');
+    res.locals.error=req.flash('error');
     next();
 });
 //Rutas o URLS
