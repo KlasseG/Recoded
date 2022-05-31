@@ -5,9 +5,12 @@ const async = require('hbs/lib/async'); //traemos async para hbs
 
 const UserSchema= new Schema({  //definimos el esquéma y lo guaramos en UserSchema
     name: {type: String, required: true},   //nombre string requerido
-    lname: {type: String, required: true}, //apellido string requerido
+    lname: {type: String, required: true, default: ''}, //apellido string requerido
     email: {type: String, required: true}, //email string requerido
     password: {type: String, required: true}, //password string requerido
+    validador: {type: String, required: true, default: 'codigo'},// Función pendinete
+    validado: {type: Boolean, required: true, default: false},
+    profesor: {type: Boolean, required: true, default: false},
     date: {type: Date, default:Date.now} //fecha de creación tipo fecha automática
 });
 

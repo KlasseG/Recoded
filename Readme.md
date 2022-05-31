@@ -56,7 +56,32 @@ KlasseG es una WebApp que prioriza la interacción con el usuario y su facilidad
 - CRUD Listo
 - sign up listo
 - log in passport y express sessions listos
-- validación de rutas codificandose
+- validación de rutas Lista
+- Log in con un bug de conexión con passport
+
+
+## Expansiones
+
+- vistas
+- Codificar página de usuario (traer desde res.locals.user= req.user el objeto user.atributo en el front)
+- Modificar el front y probar si en el campo descripción al traerlos de la base quedan como links
+- Incrustar saludo de bienvenida en /notes {Hola alumno/profe juancho}
+
+
+- modelo nota
+- escalarlo a almacenar más de un link y mostrar todos los links
+
+
+- Funcionalidades
+- Eliminar cuenta de usuario Dentro de la pagina de usuario
+- Archivada (Cambiar el método delete por findByIdAndReplace({ archived: true}))
+- Recuperar archivada (1.- Agregar un botón para recuperarla 2.-Cambiar el método delete por findByIdAndReplace({ archived: false}))
+
+Dificiles
+- Validación del correo electrónico (Codificar un js con alguna api :c )
+- Identificador para la clase con id (Expandir el mode de notas)
+- Agrupar más de un link en una clase
+
 
 
 ## Entendiendo el código para principiantes:

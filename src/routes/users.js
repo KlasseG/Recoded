@@ -57,12 +57,22 @@ router.post('/users/signup', async (req, res)=>{
             req.flash('error_msg', 'El email ya ha sido registrado');
             res.redirect('/users/signup'); 
         }
-        const newUser = new User({name, email, password});
+        const newUser = new User({name, lname, email, password});
         newUser.password = await newUser.encryptPassword(password);
         await newUser.save();
+        //function(password)
+        //encriptado(password)=>send.email
+        //res.redirect('/users/validate');
+        //save
         req.flash('success_msg', 'Has sido registrado');
         res.redirect('/users/signin');
     }
+});
+
+
+router.get('/users/logout', (req,res)=>{
+    req.logOut();
+    res.redirect('/');
 })
 
 module.exports=router;

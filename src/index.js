@@ -23,7 +23,7 @@ app.set('views', path.join(__dirname, 'views')); //establecemos la carpeta donde
 app.set('.hbs', exphbs.engine({     //iniciamos la aplicación con el layout default como main.hbs
     defaultLayout: 'main',      //donde está el layout
     layoutsDir: path.join(app.get('views'), 'layouts'),     //donde estarán los demás
-    partialsDir: path.join(app.get('views'), 'Partials'),
+    partialsDir: path.join(app.get('views'), 'partials'),
     extname: '.hbs' //nombre o tipo de la extención
 }));
 app.set('view engine', '.hbs'); //lanzamos
@@ -46,6 +46,7 @@ app.use((req,res,next)=>{
     res.locals.success_msg=req.flash('success_msg');
     res.locals.error_msg=req.flash('error_msg');
     res.locals.error=req.flash('error');
+    res.locals.user= req.user||null;
     next();
 });
 //Rutas o URLS
