@@ -48,7 +48,7 @@ router.put('/notes/edit-note/:id', isAuthenticated, async(req, res)=>{
     const {title, description}=req.body;
     await Note.findByIdAndUpdate(req.params.id, {title,description});
     //function notificacionCorreo({ title,descripción}, {user.email});
-    //user.email=>{Title,description} "Se ha modificado la clase {title} que tienes instrita"
+    //user.email=>{Title,description} "Se ha modificado la clase {ti} que tienes instrita"
     req.flash('sucess_msg', 'Clase actualizada Correctamente');
     res.redirect('/notes');
 });

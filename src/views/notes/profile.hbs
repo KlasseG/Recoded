@@ -1,0 +1,24 @@
+<div class="card">
+    <div class="card-header">
+        <h1 class="card-title mx-auto"> Hola {{user.name}}</h1>
+    </div>
+    <div class="card-body">
+        <h3>Información de la cuenta</h3>
+        <h4>Nombre: {{user.name}}</h4>
+        <h4>Apellido: {{user.lname}}</h4>
+        <hr>
+        <h4>E-Mail: {{user.email}}</h4>
+        <h4>Tipo de usuario: 
+            {{#if user.profesor}}
+                Profesor
+            {{else}}
+                Alumno
+            {{/if}}
+        </h4>
+        <div class="form-group">
+            <button class="btn btn-danger btn-block btn-sm" type="submit">
+                Eliminar Cuenta (Aun no hago nada)
+            </button>
+        </div>
+    </div>
+</div>

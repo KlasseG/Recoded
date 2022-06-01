@@ -21,7 +21,7 @@ const users = require('./routes/users'); //traemos el archivo de carpeta/routes/
 app.set('port', process.env.PORT || 3000); //conectamos en el puerto disponible al entorno y si no hay en el 3000
 app.set('views', path.join(__dirname, 'views')); //establecemos la carpeta donde va a estar todo nuestro front
 app.set('.hbs', exphbs.engine({     //iniciamos la aplicación con el layout default como main.hbs
-    defaultLayout: 'main',      //donde está el layout
+    defaultLayout: 'main.hbs',      //donde está el layout
     layoutsDir: path.join(app.get('views'), 'layouts'),     //donde estarán los demás
     partialsDir: path.join(app.get('views'), 'partials'),
     extname: '.hbs' //nombre o tipo de la extención

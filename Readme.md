@@ -83,6 +83,11 @@ Dificiles
 - Agrupar más de un link en una clase
 
 
+Requerimientos que podrían ser prospectos a eliminarse
+
+
+
+
 
 ## Entendiendo el código para principiantes:
 

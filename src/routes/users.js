@@ -56,16 +56,24 @@ router.post('/users/signup', async (req, res)=>{
         if (emailUser) {
             req.flash('error_msg', 'El email ya ha sido registrado');
             res.redirect('/users/signup'); 
+        }else{
+            const newUser = new User({name, lname, email, password, profesor});
+            if (email.indexOf('alumno')>0) {
+                newUser.profesor=false;
+            }
+            if (email.indexOf('alumno')<0) {
+                newUser.profesor=true;
+            }
+            //newUser.validador= function(password);
+            newUser.password = await newUser.encryptPassword(password);
+            await newUser.save();
+            //function(password)
+            //encriptado(password)=>send.email
+            //res.redirect('/users/validate');
+            //save
+            req.flash('success_msg', 'Has sido registrado');
+            res.redirect('/users/signin');
         }
-        const newUser = new User({name, lname, email, password});
-        newUser.password = await newUser.encryptPassword(password);
-        await newUser.save();
-        //function(password)
-        //encriptado(password)=>send.email
-        //res.redirect('/users/validate');
-        //save
-        req.flash('success_msg', 'Has sido registrado');
-        res.redirect('/users/signin');
     }
 });
 

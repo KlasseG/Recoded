@@ -16,12 +16,12 @@ const UserSchema= new Schema({  //definimos el esquéma y lo guaramos en UserSch
 
 UserSchema.methods.encryptPassword= async (password)=>{ //Método de UserSchema para encriptar
     const salt= await bcrypt.genSalt(10);   //hacemos una variable que guarde el recultado de la funcion genSalt con una iteración de 10
-    const hash=bcrypt.hashSync(password, salt); //hago una variable que va a generar con salt (semilla) y Password una encriptación de la contraseña
+    const hash=bcrypt.hash(password, salt); //hago una variable que va a generar con salt (semilla) y Password una encriptación de la contraseña
     return hash; //regresamos el resultado del proceso anterior
 };
 
 UserSchema.methods.matchPassword=async function(password){ //Método de UserSchema para comparar passwords
-    return await bcrypt.compare(password.this.password); //Regresa una comparación de la contraseña guardada con la contraseña ingresada
-}
+    return await bcrypt.compare(password, this.password); //Regresa una comparación de la contraseña guardada con la contraseña ingresada
+};
 
-module.exports=mongoose.model('Us', UserSchema); //cuando escriba Us harás referencia a UserSchema;
+module.exports=mongoose.model('User', UserSchema); //cuando escriba Us harás referencia a UserSchema;
